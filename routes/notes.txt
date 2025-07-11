@@ -1,0 +1,7 @@
+Routes are basically used to keep the things separate and clean like we did in our project
+i.e. we made one file for user work
+and other for host work and one for server creation
+We can write html in different files by makinga folder named: views
+If a page exports more than one module then use : exports.name=name
+TO ADD EJS
+npm install --save ejs

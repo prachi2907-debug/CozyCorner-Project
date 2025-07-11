@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('../partials/head') %>
+  <body>
+    <%- include('../partials/nav') %>
+
+    <main class="container">
+      <h2 class="section-title">Book This Home</h2>
+      <form action="/bookings" method="POST" class="booking-form">
+        <input type="hidden" name="homeId" value="<%= home._id %>" />
+        
+        <label>
+          User Name:
+          <input type="text" name="username" required />
+        </label>
+
+        <label>
+          Check-in Date:
+          <input type="date" name="checkinDate" required />
+        </label>
+
+        <label>
+          Check-out Date:
+          <input type="date" name="checkoutDate" required />
+        </label>
+
+        <label>
+          Check-in Time:
+          <input type="time" name="time" required />
+        </label>
+
+        <button type="submit" class="btn">Submit Booking</button>
+      </form>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,11 @@
+<% if (errors.length > 0) { %>
+  <div class="custom-error-alert" role="alert">
+    <strong class="custom-error-title">Error!</strong>
+    <span class="custom-error-list">
+      <% errors.forEach(error => { %>
+        <li><%= error %></li>
+      <% }) %>
+    </span>
+    <span class="custom-error-close-btn">&times;</span>
+  </div>
+<% } %>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('../partials/head') %>
+  <body>
+    <%- include('../partials/nav') %>
+    
+ <main class="home-details-container">
+  <h2 class="home-details-title">
+    Details of <%= home.houseName %>
+  </h2>
+
+  <div class="home-details-grid">
+    <div>
+      <img src="<%= home.photoUrl %>" alt="<%= home.name %>" class="home-details-image">
+    </div>
+
+    <div class="home-details-section">
+      <div class="home-detail-box">
+        <h3 class="home-detail-heading">Description</h3>
+        <p class="home-detail-text"><%= home.description %></p>
+      </div>
+
+      <div class="home-detail-box">
+        <h3 class="home-detail-heading">Location</h3>
+        <p class="home-detail-text"><%= home.location %></p>
+      </div>
+
+      <div class="home-detail-box">
+        <h3 class="home-detail-heading">Price</h3>
+        <p class="price-text">₹<%= home.price %> / night</p>
+      </div>
+
+      <div class="home-detail-box">
+        <h3 class="home-detail-heading">Rating</h3>
+        <div class="rating-wrapper">
+          <span class="star-icon">★</span>
+          <span class="rating-text"><%= home.rating %> / 5</span>
+        </div>
+      </div>
+      <% if (isLoggedIn && user.userType === 'guest') { %>
+        <div class="fav-btn">
+       <%- include('../partials/fav') %>
+        <div class="home-detail-box">
+    <div class="button-wrapper">
+      <form action="/bookings/<%= home._id %>" method="GET">
+    <button type="submit" class="btn">Book Now</button>
+      </form>
+          </div>
+        </div>
+        </div>
+       <%} %>
+      </div>
+  </div>
+</main>
+
+</body>
+</html>

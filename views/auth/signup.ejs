@@ -1,0 +1,61 @@
+<%- include('../partials/head') %>
+</head>
+<body>
+  <%- include('../partials/nav') %>
+
+  <main class="main-container" style="max-width: 500px; margin-top: 2rem;">
+    <h1 class="section-title" style="text-align: center;">Create New Account</h1>
+
+    <form action="/signup" method="POST" class="form">
+        <%- include('../partials/error') %>
+      <input
+        type="text"
+        name="firstname"
+        value="<%= oldInput.firstname ? oldInput.firstname : '' %>"
+        placeholder="First Name"
+        required />
+        <input
+        type="text"
+        name="lastname"
+        value="<%= oldInput.lastname? oldInput.lastname : '' %>"
+        placeholder="Last Name"
+         />
+        <input
+        type="email"
+        name="email"
+        value="<%= oldInput.email ? oldInput.email : '' %>"
+        placeholder="eg.text@pop.com"
+        required />
+
+      <input
+        type="password"
+        name="password"
+        placeholder="Enter Your Password"
+        required />
+        <input
+        type="password"
+        name="Confirmpassword"
+        placeholder="Confirm Your Password"
+        required />
+        <p>User Type:</p>
+        <label >
+              <input type="radio" name="userType" value="guest" id="guest"  <% if (oldInput.userType === 'guest') { %>checked<% } %> />
+              <span >Guest</span>
+          </label>
+          <label >
+              <input type="radio" name="userType" value="host" id="host"  <% if (oldInput.userType === 'host') { %>checked<% } %> />
+              <span >Host</span>
+          </label>
+          <label >
+            <input type="checkbox" name="terms" id="terms" required />
+            <span >I agree to the <a href="#" >terms and conditions</a></span>
+          </label>
+
+
+      <input
+        type="submit"
+        value="Sign Up" />
+    </form>
+  </main>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<div class="home-detail-box">
+  <div class="button-wrapper">
+    <% if(isLoggedIn) {%>
+       
+        <form action="/favourites" method="POST">
+        <button type="submit" class="favBtn">Add To Favourites</button>
+          <input type="hidden" name="id" value="<%= home._id %>">
+           <input type="hidden" name="isLoggedIn" value="<%= isLoggedIn %>" />
+          </form>
+
+        <% } else { %>
+       
+       <a href="/login" class="btn">login</a>
+        
+        <% } %>
+          </div>
+        </div>

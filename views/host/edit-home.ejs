@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+ <%- include('../partials/head') %>
+  <body>
+    <%- include('../partials/nav') %>
+<main class="main-container">
+    <h2 class="section-title"><%= editing ? "Edit" : "Register"%> Your Home on AirBnb</h2>
+    <form action="/host/<%= editing ?'edit-home' : 'add-home'%>" method="POST" class="form">
+         <input type="hidden" name="id" value="<%= editing ? home._id : ''%>" />
+      <input type="text" name="houseName" placeholder="Enter the name of your house"  value="<%= editing ? home.houseName : ''%>" />
+      <input type="text" name="price" placeholder="Price Per Night"   value="<%= editing ? home.price : ''%>"/>
+      <input type="text" name="location" placeholder="Enter the location of your house"   value="<%= editing ? home.location : ''%>"/>
+      <input type="text" name="rating" placeholder="Rating"   value="<%= editing ? home.rating : ''%>"/>
+      <input type="text" name="photoUrl" placeholder="Enter the Photo Url"   value="<%= editing ? home.photoUrl : ''%>"/>
+       <textarea name="description" placeholder="Describe your home"><%= editing ? home.description : ''%></textarea>
+      <input type="submit" value="<%= editing ? 'Update Home' : 'Add Home'%>"  />
+    </form>
+  </main>
+  </body>
+</html>

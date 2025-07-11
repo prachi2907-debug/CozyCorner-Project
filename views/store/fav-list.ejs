@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('../partials/head') %>
+  <body>
+    <%- include('../partials/nav') %>
+    
+ <main class="container mx-auto bg-white shadow-lg rounded-lg p-8 mt-10 max-w-xl">
+      <h2 class="text-3xl text-red-500 font-bold text-center mb-6">
+        Here are our favourites:
+      </h2>
+      <div class="cards-wrapper">
+  <% favouriteHomes.forEach(home => { %>
+    <div class="card image-overlay-card">
+      <img src="<%= home['photoUrl'] %>" alt="home photo" />
+
+      <div class="overlay-content">
+        <div class="info">
+          <span class="house-name"><%= home.houseName %></span>
+          <span>Location:<%= home.location %></span>
+          <div class="price-rating-row">
+            <span class="price">₹<%= home.price %>/night</span>
+            <span class="rating">⭐ <%= home.rating %></span>
+          </div>
+        </div>
+        <div class="action-buttons">
+         <form action="/bookings/<%= home._id %>" method="GET">
+            <button type="submit" class="btn">Book Now</button>
+        </form>
+        <form action="/favourites/delete/<%= home._id %>" method="POST">
+                <button class="btn" type="submit">Remove</button>
+              </form>
+              </div>
+      </div>
+    </div>
+  <% }) %>
+</div>
+    </main>
+
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+<%- include('../partials/head') %>
+</head>
+<body>
+  <%- include('../partials/nav') %>
+
+  <main class="main-container" style="max-width: 500px; margin-top: 2rem;">
+    <h1 class="section-title" style="text-align: center;">Login with your info</h1>
+
+    <form action="/login" method="POST" class="form">
+      <%- include('../partials/error') %>
+
+       <input
+        type="email"
+        name="email"
+        value="<%= oldInput.email ? oldInput.email : '' %>"
+        placeholder="eg.text@pop.com"
+        required />
+
+      <input
+        type="password"
+        name="password"
+        placeholder="Enter Your Password"
+        required />
+
+      <input
+        type="submit"
+        value="Sign In" />
+    </form>
+  </main>
+</body>
+</html>

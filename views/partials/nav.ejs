@@ -1,0 +1,32 @@
+<header class="header">
+    <nav class="nav">
+      <div class="brand">
+      <img src="/images/airbnb-img.webp" class="icon" alt="icon">
+      <h1 class="page-title">airbnb</h1>
+      </div>
+      <ul class="nav-links">
+        
+        <li><a href="/" class="nav-btns">Home</a></li>
+        <% if(isLoggedIn) {%>
+          <% if (user && user.userType === 'guest') { %>
+        <li><a href="/my-bookings" class="nav-btns">Bookings</a></li>
+        <li><a href="/favourites" class="nav-btns">Favourites</a></li>
+       
+        <% } else{ %>
+         <li><a href="/host/add-home" class="nav-btns">Add Home</a></li>
+         <li><a href="/host/home-list" class="nav-btns">Host Homes</a></li>
+         <% } %>
+         <% } %>
+
+        <% if(!isLoggedIn) {%>
+          <li><a href="/login" class="nav-btns">login</a></li>
+          <li><a href="/signup" class="nav-btns">SignUp</a></li>
+           <% } else { %>
+            <form action="/logout" method="POST">
+            <button
+              type="submit" class="btn">Logout</button>
+          </form>
+            <% } %>
+      </ul>
+    </nav>
+  </header>
