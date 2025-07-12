@@ -1,15 +1,20 @@
+require('dotenv').config(); 
 const path=require('path');
+const { default: mongoose } = require('mongoose');
 const express=require("express");
 const session = require('express-session');
+
 const MongoDBStore = require('connect-mongodb-session')(session);
-const MONGO_URL="mongodb+srv://prachisharma29072005:idlidosa@fullstackproject1.nc01hkg.mongodb.net/airbnb?retryWrites=true&w=majority&appName=FullStackProject1";
+
 const hostRouter=require("./routes/host");
 const userRouter=require("./routes/user");
 const authRouter=require("./routes/auth")
 const rootDir= require('./utils/pathutils');
 const errorController=require('./controllers/error');
-const { default: mongoose } = require('mongoose');
+
 const app=express();
+const PORT = process.env.PORT || 3000;
+const MONGO_URL = process.env.MONGO_URL;
 app.set('view engine','ejs');
 app.set('views','views');   //default value views he hoti hai tho if not written then also ok
 const store = new MongoDBStore({
@@ -46,7 +51,7 @@ app.use(express.static(path.join(rootDir,'public')));
 
 app.use(errorController.pageNotFound);
 
-const PORT = 3003;
+
 mongoose.connect(MONGO_URL).then(() => {
   app.listen(PORT, () => {
     console.log(`Server running on address http://localhost:${PORT}`);
