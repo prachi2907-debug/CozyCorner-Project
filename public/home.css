@@ -30,6 +30,12 @@
   display: flex;
   gap: 1rem;
 }
+
+.nav-links form {
+  margin: 0;
+  padding: 0;
+}
+
 .nav-btns{
   font-size: larger;
 }
@@ -118,7 +124,7 @@
 
   .nav-links {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     width: 100%;
     gap: 0.5rem;
     margin-top: 1rem;
@@ -127,20 +133,36 @@
   .nav-links li,
   .nav-links form {
     width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .nav-links form {
+    margin: 0;
+    padding: 0;
   }
 
   .nav-links a,
-  .btn {
+  .nav-links button.btn {
     display: block;
     width: 100%;
+    max-width: 100%;
     text-align: center;
-    background-color: #40a580; /* slightly lighter for contrast */
+    background-color: #40a580;
     padding: 0.75rem;
     border-radius: 0.375rem;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    color: white;
+    margin: 0;
+    box-sizing: border-box;
   }
 
   .nav-links a:hover,
-  .btn:hover {
+  .nav-links button.btn:hover {
     background-color: #2c7b5a;
   }
 
@@ -160,7 +182,7 @@
   }
 
   .nav-links a,
-  .btn {
+  .nav-links button.btn {
     font-size: 0.95rem;
     padding: 0.6rem;
   }
@@ -567,4 +589,327 @@
   justify-content: center;
   align-items: center;
   gap: 1rem;
+}
+
+/* ===== COMPREHENSIVE MEDIA QUERIES FOR RESPONSIVE DESIGN ===== */
+
+/* Tablet Devices (768px - 1024px) */
+@media (max-width: 1024px) {
+  .container {
+    padding: 1.5rem;
+    margin: 20px auto;
+  }
+
+  .cards-wrapper {
+    gap: 1.5rem;
+  }
+
+  .image-overlay-card {
+    width: 280px;
+    height: 310px;
+    min-width: 280px;
+  }
+
+  .home-details-container {
+    padding: 1.5rem;
+    margin: 2rem auto;
+  }
+
+  .booking-form {
+    padding: 1.5rem;
+    max-width: 500px;
+  }
+}
+
+/* Mobile Devices (481px - 768px) */
+@media (max-width: 768px) {
+  .header {
+    padding: 0.75rem 1rem;
+  }
+
+  .container {
+    padding: 1rem;
+    margin: 15px;
+    max-width: 100%;
+  }
+
+  .page-title {
+    font-size: 1.5rem;
+    margin-top: 5px;
+  }
+
+  .section-title {
+    font-size: 1.25rem;
+    text-align: center;
+  }
+
+  .cards-wrapper {
+    gap: 1rem;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .image-overlay-card {
+    width: 100%;
+    max-width: 400px;
+    height: 320px;
+    min-width: unset;
+  }
+
+  .image-overlay-card .house-name {
+    font-size: 1.1rem;
+  }
+
+  .home-details-container {
+    padding: 1rem;
+    margin: 1rem;
+  }
+
+  .home-details-title {
+    font-size: 1.5rem;
+  }
+
+  .home-details-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .home-details-image {
+    height: 18rem;
+  }
+
+  .home-detail-heading {
+    font-size: 1.25rem;
+  }
+
+  .booking-form {
+    padding: 1.5rem;
+    margin: 1rem auto;
+    max-width: 100%;
+  }
+
+  .booking-form h2 {
+    font-size: 1.5rem;
+  }
+
+  .booking-card {
+    padding: 1rem;
+  }
+
+  .booking-title {
+    font-size: 1.1rem;
+  }
+
+  .booking-details {
+    font-size: 0.9rem;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+
+  .action-buttons {
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+  }
+
+  .action-buttons .btn,
+  .action-buttons form {
+    width: 100%;
+  }
+
+  .action-buttons button {
+    width: 100%;
+  }
+
+  .fav-btn {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .form {
+    gap: 0.75rem;
+  }
+
+  .form input[type="text"],
+  .form input[type="password"],
+  .form input[type="email"],
+  .form textarea {
+    padding: 0.75rem;
+    font-size: 1rem;
+  }
+
+  .custom-error-alert {
+    padding: 0.75rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* Small Mobile Devices (320px - 480px) */
+@media (max-width: 480px) {
+  .header {
+    padding: 0.5rem 0.75rem;
+  }
+
+  .container {
+    padding: 0.75rem;
+    margin: 10px;
+  }
+
+  .page-title {
+    font-size: 1.25rem;
+  }
+
+  .section-title {
+    font-size: 1.1rem;
+  }
+
+  .nav-btns {
+    font-size: 0.9rem;
+  }
+
+  .icon {
+    height: 35px;
+    width: 35px;
+  }
+
+  .image-overlay-card {
+    width: 100%;
+    max-width: 100%;
+    height: 300px;
+  }
+
+  .image-overlay-card .house-name {
+    font-size: 1rem;
+  }
+
+  .image-overlay-card .info {
+    font-size: 0.9rem;
+  }
+
+  .price-rating-row {
+    font-size: 0.85rem;
+  }
+
+  .home-details-container {
+    padding: 0.75rem;
+    margin: 0.5rem;
+  }
+
+  .home-details-title {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+  }
+
+  .home-details-image {
+    height: 14rem;
+  }
+
+  .home-detail-heading {
+    font-size: 1.1rem;
+  }
+
+  .home-detail-text {
+    font-size: 0.9rem;
+  }
+
+  .price-text {
+    font-size: 1.1rem;
+  }
+
+  .rating-text {
+    font-size: 1rem;
+  }
+
+  .booking-form {
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .booking-form h2 {
+    font-size: 1.25rem;
+  }
+
+  .booking-form input[type="text"],
+  .booking-form input[type="date"],
+  .booking-form input[type="time"] {
+    padding: 0.6rem;
+    font-size: 0.95rem;
+  }
+
+  .booking-card {
+    padding: 0.75rem;
+  }
+
+  .booking-title {
+    font-size: 1rem;
+  }
+
+  .booking-details {
+    font-size: 0.85rem;
+  }
+
+  .btn {
+    padding: 0.6rem 0.9rem;
+    font-size: 0.9rem;
+  }
+
+  .form input[type="text"],
+  .form input[type="password"],
+  .form input[type="email"],
+  .form textarea {
+    padding: 0.6rem;
+    font-size: 0.95rem;
+  }
+
+  .form input[type="submit"] {
+    padding: 0.7rem;
+    font-size: 1rem;
+  }
+
+  .page-404 h1 {
+    font-size: 1.5rem;
+  }
+
+  .page-404 h2 {
+    font-size: 1.25rem;
+  }
+
+  .custom-error-alert {
+    padding: 0.6rem;
+    font-size: 0.85rem;
+  }
+
+  .custom-error-list li {
+    margin-left: 1rem;
+    font-size: 0.85rem;
+  }
+}
+
+/* Extra Small Devices (max-width: 320px) */
+@media (max-width: 320px) {
+  .page-title {
+    font-size: 1.1rem;
+  }
+
+  .icon {
+    height: 30px;
+    width: 30px;
+  }
+
+  .container {
+    padding: 0.5rem;
+    margin: 5px;
+  }
+
+  .image-overlay-card {
+    height: 280px;
+  }
+
+  .home-details-image {
+    height: 12rem;
+  }
+
+  .booking-form {
+    padding: 0.75rem;
+  }
 }
